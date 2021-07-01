@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "require": "^2.4.20"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.12.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
