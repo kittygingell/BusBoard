@@ -1,4 +1,5 @@
 import axios from "axios";
+import {get_nearest_stops} from "./tfl";
 
 /**
  * Returns the latitude and longitude of a given postcode,
@@ -7,8 +8,7 @@ import axios from "axios";
 function get_postcode_location(postcode: string) {
     axios.get('https://api.postcodes.io/postcodes?q=' + postcode)
         .then(function (response) {
-            console.log("The longitude is: " + response.data.result[0].longitude.toFixed(3) +
-                " the latitude is: " + response.data.result[0].latitude.toFixed(3))
+            get_nearest_stops(response.data.result[0].longitude.toFixed(3),response.data.result[0].latitude.toFixed(3))
         }).catch(function (error: any) {
         console.log(error);
     })
