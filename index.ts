@@ -2,7 +2,7 @@
 const readline = require('readline-sync');
 console.log('\nEnter the bus stop code');
 const stopcode = readline.prompt();
-
+// 490008660N
 
 import {BusArrival} from "./busArrival";
 const axios = require('axios').default;
@@ -39,4 +39,4 @@ function get_stop_arrivals(stopID:String){
     })
 }
 
-get_stop_arrivals("490008660N")
+get_stop_arrivals(stopcode)
