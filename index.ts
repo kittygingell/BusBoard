@@ -1,17 +1,16 @@
 import {BusArrival} from "./busArrival";
 import axios from "axios";
+import {validate_postcode} from "./postcode";
+
 const readline = require('readline-sync');
 
 /**
  * Ask user for STOP ID and output next 5 buses
  */
 function main(){
-    console.log('\nEnter the bus stop code');
-    const stopcode = readline.prompt();
-    // 490008660N
-
-    let arrivalList = get_stop_arrivals(stopcode)
-    // JSON Object does NOT sort arrivals by time
+    console.log('\nEnter a postcode');
+    const postcode : string = readline.prompt();
+    validate_postcode(postcode)
 }
 
 main()
