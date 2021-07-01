@@ -5,17 +5,21 @@ import {output_arrivals} from "./index";
 
 export function get_nearest_stops(longitude: number, latitude: number) {
     let stopList: NearestStops[] = []
+
     axios.get('https://api.tfl.gov.uk/StopPoint/?lat=' + latitude + '&lon=%20' + longitude + '&stopTypes=NaptanPublicBusCoachTram')
         .then(function (response) {
             for (let i = 0; i < response.data.stopPoints.length; i++) {
                 const stopPoint = response.data.stopPoints[i];
+                if (stopPoint.lines.length == 0){
+                    continue
+                }
                 stopList.push(new NearestStops(
                     stopPoint.naptanId,
                     stopPoint.commonName,
                     stopPoint.distance))
             }
             stopList.sort((n1: NearestStops, n2: NearestStops) => n1.distance - n2.distance)
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 2 && i < stopList.length; i++) {
                 get_stop_arrivals(stopList[i]);
             }
         }).catch(function (error: any) {
