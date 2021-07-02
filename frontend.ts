@@ -4,6 +4,7 @@ import {get_nearest_stops, get_stop_arrivals} from "./tfl";
 const app = express()
 const port = 3000
 
+
 async function main(){
     app.get('/departureBoards', async (req, res) => {
         let postcode = req.query.postcode!.toString();
@@ -29,6 +30,7 @@ async function main(){
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`)
     })
+    app.use('/frontend', express.static('frontend'));
 }
 
 main().then()
