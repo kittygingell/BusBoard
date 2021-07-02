@@ -12,7 +12,7 @@ function main(){
     validate_postcode(postcode).then()
 }
 
-main()
+// main()
 
 /**
  * Generates the correct eta string based on time

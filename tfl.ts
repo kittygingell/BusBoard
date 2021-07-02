@@ -18,9 +18,7 @@ export async function get_nearest_stops(longitude: number, latitude: number) {
             stopPoint.distance))
     }
     stopList.sort((n1: NearestStops, n2: NearestStops) => n1.distance - n2.distance)
-    for (let i = 0; i < 2 && i < stopList.length; i++) {
-        await get_stop_arrivals(stopList[i]);
-    }
+    return stopList
 }
 
 /**
@@ -28,19 +26,16 @@ export async function get_nearest_stops(longitude: number, latitude: number) {
  * destination and arrival time
  * @param stopID ID of TFL Bus Stop
  */
-async function get_stop_arrivals(stop: NearestStops) {
+export async function get_stop_arrivals(stop: NearestStops) {
     let arrivalList: BusArrival[] = []
     let stopID = stop.naptanId
     const response = await axios.get('https://api.tfl.gov.uk/StopPoint/' + stopID + '/Arrivals')
-    for (let i = 0; i < response.data.length; i++) {
+    for (let i = 0; i < response.data.length && i < 5; i++) {
         arrivalList.push(new BusArrival(
             response.data[i].lineName,
             response.data[i].destinationName,
             response.data[i].timeToStation))
     }
     arrivalList.sort((b1: BusArrival, b2: BusArrival) => b1.timeToStation - b2.timeToStation)
-    console.log("***************************")
-    console.log("Arrival times for: " + stop.commonName)
-    output_arrivals(arrivalList)
-
+    return arrivalList
 }
