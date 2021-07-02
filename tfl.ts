@@ -2,6 +2,7 @@ import {NearestStops} from "./NearestStops";
 import {BusArrival} from "./busArrival";
 import axios from "axios";
 import {output_arrivals} from "./index";
+import {StopArrivals} from "./StopArrivals";
 
 export async function get_nearest_stops(longitude: number, latitude: number) {
     let stopList: NearestStops[] = []
@@ -37,5 +38,5 @@ export async function get_stop_arrivals(stop: NearestStops) {
             response.data[i].timeToStation))
     }
     arrivalList.sort((b1: BusArrival, b2: BusArrival) => b1.timeToStation - b2.timeToStation)
-    return arrivalList
+    return new StopArrivals(stop.naptanId, stop.commonName, arrivalList)
 }
