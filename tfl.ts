@@ -1,7 +1,6 @@
 import {NearestStops} from "./NearestStops";
 import {BusArrival} from "./busArrival";
 import axios from "axios";
-import {output_arrivals} from "./index";
 import {StopArrivals} from "./StopArrivals";
 
 export async function get_nearest_stops(longitude: number, latitude: number) {
