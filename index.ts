@@ -18,15 +18,7 @@ function main(){
  * Generates the correct eta string based on time
  * @param eta
  */
-function generate_eta(eta: number) {
-    if (eta === 0) {
-        return " is Due"
-    } else if (eta === 1) {
-        return " arriving 1 minute"
-    } else {
-        return " arriving in " + eta + " minutes"
-    }
-}
+
 
 /**
  * Print each arrival in readable format

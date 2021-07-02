@@ -10,20 +10,26 @@
 <h1>BusBoard</h1>
 <form action="javascript:void(0)" onsubmit="void(0);">
     Postcode:<br>
-    <input type="text" name="postcode">
-    <input type="submit" value="Submit">
+    <input id="postcode" type="text" name="postcode">
+    <input type="button" onclick="myFunction()" value="Submit">
 </form>
 <div id="results">
     <h2>Results</h2>
-    <h3>Example stop 1</h3>
+    <h3 id="Stop1">Example stop 1</h3>
     <ul>
-        <li>2 minutes: 123 to Example Street</li>
-        <li>3 minutes: 456 to Fantasy Land</li>
+        <li id="stop1bus1">2 minutes: 123 to Example Street</li>
+        <li id="stop1bus2">3 minutes: 456 to Fantasy Land</li>
+        <li id="stop1bus3">3 minutes: 456 to Fantasy Land</li>
+        <li id="stop1bus4">3 minutes: 456 to Fantasy Land</li>
+        <li id="stop1bus5">3 minutes: 456 to Fantasy Land</li>
     </ul>
-    <h3>Example stop 2</h3>
+    <h3 id="Stop2">Example stop 2</h3>
     <ul>
-        <li>1 minute: 123 to Example Street</li>
-        <li>4 minutes: 456 to Fantasy Land</li>
+        <li id="stop2bus1">1 minute: 123 to Example Street</li>
+        <li id="stop2bus2">4 minutes: 456 to Fantasy Land</li>
+        <li id="stop2bus3">3 minutes: 456 to Fantasy Land</li>
+        <li id="stop2bus4">3 minutes: 456 to Fantasy Land</li>
+        <li id="stop2bus5">3 minutes: 456 to Fantasy Land</li>
     </ul>
 </div>
 </body>
