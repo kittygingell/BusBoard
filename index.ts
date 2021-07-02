@@ -9,7 +9,7 @@ const readline = require('readline-sync');
 function main(){
     console.log('\nEnter a postcode');
     const postcode : string = readline.prompt();
-    validate_postcode(postcode)
+    validate_postcode(postcode).then()
 }
 
 main()
