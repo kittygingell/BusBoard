@@ -1,6 +1,8 @@
 
 
 function myFunction() {
+    document.getElementById("loader").style.display = "block"
+    document.getElementById("results").style.display = "none";
     var postcode = document.getElementById("postcode").value
     var xhttp = new XMLHttpRequest();
     xhttp.open('GET', 'http://localhost:3000/departureBoards?postcode=' + postcode, true);
@@ -11,6 +13,7 @@ function myFunction() {
         var result = JSON.parse(xhttp.response)
         console.log(result)
         display_results(result)
+        document.getElementById("loader").style.display = "none"
         document.getElementById("results").style.display = "block";
     }
 
@@ -19,6 +22,7 @@ function myFunction() {
 
 window.onload = function () {
     document.getElementById("results").style.display = "none"
+    document.getElementById("loader").style.display = "none"
 }
 
 function display_results(response){
@@ -26,7 +30,7 @@ function display_results(response){
         console.log(response[j].arrivals)
         document.getElementById("Stop" + (j+1)).innerHTML = response[j].stopName
 
-        for(var i = 0; i < 5; i++){
+        for(var i = 0; i < 5 && i < response[j].arrivals.length; i++){
             var arrival = document.getElementById("stop" + (j+1) + "bus" + (i+1))
             var arrivalData = response[j].arrivals[i]
 

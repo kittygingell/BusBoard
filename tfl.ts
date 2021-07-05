@@ -6,7 +6,7 @@ import {StopArrivals} from "./StopArrivals";
 export async function get_nearest_stops(longitude: number, latitude: number) {
     let stopList: NearestStops[] = []
 
-    const response = await axios.get('https://api.tfl.gov.uk/StopPoint/?lat=' + latitude + '&lon=%20' + longitude + '&stopTypes=NaptanPublicBusCoachTram&radius=1000')
+    const response = await axios.get('https://api.tfl.gov.uk/StopPoint/?lat=' + latitude + '&lon=%20' + longitude + '&stopTypes=NaptanPublicBusCoachTram&radius=3000')
     for (let i = 0; i < response.data.stopPoints.length; i++) {
         const stopPoint = response.data.stopPoints[i];
         if (stopPoint.lines.length == 0){

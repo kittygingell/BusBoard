@@ -59,6 +59,9 @@ input[type=text] {
 
 input[type=text]:focus {
     border: 3px solid #555;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-image: url('https://www.w3schools.com/css/searchicon.png');
 }
 
 #home-btn{
@@ -68,4 +71,26 @@ input[type=text]:focus {
 
 ul {
     list-style: none;
+}
+
+div#results1, div#results2 {
+    border: 2px solid black;
+    width: 35%;
+    padding-right: 25px;
+    margin: 10px auto auto;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    margin: 15px auto auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
